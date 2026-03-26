@@ -8,8 +8,8 @@ export default function Hero() {
       style={{
         background: 'linear-gradient(160deg, #1a0800 0%, #7c2600 35%, #c84200 60%, #1a0800 100%)',
         position: 'relative', overflow: 'hidden',
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
-        padding: '30px 16px 40px',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        padding: '40px 16px 60px',
         minHeight: '100dvh',
       }}
     >
@@ -28,7 +28,7 @@ export default function Hero() {
       {/* Glow */}
       <div style={{ position: 'absolute', width: '700px', height: '500px', top: 0, left: '50%', transform: 'translateX(-50%)', background: 'radial-gradient(ellipse, rgba(200,80,0,0.4) 0%, transparent 65%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
 
-      <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '820px', paddingTop: '16px', gap: '16px' }}>
+      <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '820px', paddingTop: '24px', gap: '20px' }}>
 
         {/* Headline */}
         <h1 style={{ fontSize: 'clamp(26px, 5vw, 58px)', fontWeight: 900, color: 'white', textAlign: 'center', lineHeight: 1.15, margin: 0, maxWidth: '760px' }}>
