@@ -1,27 +1,27 @@
 const testimonials = [
     {
         name: 'Bunda Rizka',
-        role: 'Ibu Rumah Tangga, Jakarta — Anak 4 tahun',
+        role: 'Jakarta (Anak 4 tahun)',
         avatar: '👩‍👧',
         rating: 5,
-        text: '"Anak saya tadinya susah banget diajak belajar. Begitu pakai worksheet ini, dia malah yang minta belajar duluan! Dalam 3 hari, sudah hafal lebih dari 30 kosakata dengan cara bermain. Subhanallah!"',
-        result: 'Anak 4 th hafal 30+ kosakata dalam 3 hari',
+        text: '"Dulu anak saya susah nangis kalau diajak belajar. Setelah pakai worksheet ini, dia malah antusias karena banyak gambar dan aktivitasnya seru."',
+        result: 'Anak jadi lebih mau belajar & kosakata nambah',
     },
     {
         name: 'Bunda Herni',
-        role: 'Working Mom, Surabaya — Anak 7 tahun',
+        role: 'Surabaya (Anak 7 tahun)',
         avatar: '👩‍💼',
         rating: 5,
-        text: '"Saya kerja dan tidak punya waktu banyak. Cukup 15 menit malam sebelum tidur, dan anak saya sekarang sudah bisa percakapan dasar dalam bahasa Inggris. Jauh lebih hemat dari les yang Rp 700rb/bulan!"',
-        result: 'Hemat Rp 700.000/bulan dibanding les',
+        text: '"Saya working mom, jadi butuh yang singkat. 15 menit sebelum tidur cukup. Anak jadi lebih berani baca dan mulai nulis."',
+        result: 'Progres terlihat tanpa les mahal',
     },
     {
         name: 'Bunda Sella',
-        role: 'Guru, Bandung — Anak 9 tahun',
+        role: 'Bandung (Anak 9 tahun)',
         avatar: '👩‍🏫',
         rating: 5,
-        text: '"Saya guru tapi tidak expert bahasa Inggris. Worksheet ini dilengkapi panduan untuk orang tua, jadi saya bisa mengajari anak sendiri. Nilai bahasa Inggris anak saya naik dari 65 ke 90!"',
-        result: 'Nilai bahasa Inggris naik dari 65 → 90',
+        text: '"Bahasa Inggris saya biasa aja, tapi worksheet ini gampang diikuti. Anak jadi lebih pede baca keras-keras."',
+        result: 'Anak makin percaya diri',
     },
 ];
 
@@ -67,6 +67,27 @@ export default function SocialProof() {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div style={{ textAlign: 'center', marginTop: '32px' }}>
+                <a
+                    href="#order"
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'linear-gradient(135deg, #ff8c00, #e65c00)',
+                        color: 'white',
+                        fontWeight: 800,
+                        fontSize: '14px',
+                        padding: '14px 28px',
+                        borderRadius: '100px',
+                        textDecoration: 'none',
+                        boxShadow: '0 6px 24px rgba(255,100,0,0.5)',
+                    }}
+                >
+                    Ambil Paket yang Dipakai Para Bundda
+                </a>
             </div>
         </section>
     );

@@ -1,23 +1,44 @@
 import Hero from './components/Hero';
-import FutureSuccess from './components/FutureSuccess';
-import BenefitsSection from './components/BenefitsSection';
-import SocialProof from './components/SocialProof';
-import Storytelling from './components/Storytelling';
-import PricingSection from './components/PricingSection';
-import Guarantee from './components/Guarantee';
-import FinalCTA from './components/FinalCTA';
+import { lazy, Suspense } from 'react';
+
+const FutureSuccess = lazy(() => import('./components/FutureSuccess'));
+const BenefitsSection = lazy(() => import('./components/BenefitsSection'));
+const SocialProof = lazy(() => import('./components/SocialProof'));
+const PricingSection = lazy(() => import('./components/PricingSection'));
+const FAQ = lazy(() => import('./components/FAQ'));
+const StoryAfterFAQ = lazy(() => import('./components/StoryAfterFAQ'));
+const Guarantee = lazy(() => import('./components/Guarantee'));
+const FinalCTA = lazy(() => import('./components/FinalCTA'));
+
+function LoadingFallback() {
+  return (
+    <div style={{ 
+      minHeight: '200px', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      color: '#666',
+      fontSize: '14px'
+    }}>
+      Loading...
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
       <Hero />
-      <FutureSuccess />
-      <BenefitsSection />
-      <SocialProof />
-      <Storytelling />
-      <PricingSection />
-      <Guarantee />
-      <FinalCTA />
+      <Suspense fallback={<LoadingFallback />}>
+        <FutureSuccess />
+        <BenefitsSection />
+        <SocialProof />
+        <PricingSection />
+        <FAQ />
+        <StoryAfterFAQ />
+        <Guarantee />
+        <FinalCTA />
+      </Suspense>
     </div>
   );
 }

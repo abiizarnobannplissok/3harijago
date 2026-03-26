@@ -1,52 +1,62 @@
+import { useMemo } from 'react';
+
 export default function FinalCTA() {
+    const streaks = useMemo(() => [...Array(12)], []);
+    
     return (
         <section style={{ background: 'linear-gradient(160deg, #1a0800 0%, #7c2600 35%, #c84200 70%, #1a0800 100%)', padding: '24px 24px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
             {/* Glow */}
             <div style={{ position: 'absolute', top: '-120px', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '400px', background: 'radial-gradient(ellipse, rgba(255,140,0,0.2) 0%, transparent 65%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(12)].map((_, i) => <div key={i} style={{ position: 'absolute', top: 0, bottom: 0, left: `${i * 8.5}%`, width: i % 3 === 0 ? '2px' : '1px', background: `rgba(255,140,30,${i % 2 === 0 ? '0.06' : '0.03'})` }} />)}
+                {streaks.map((_, i) => <div key={i} style={{ position: 'absolute', top: 0, bottom: 0, left: `${i * 8.5}%`, width: i % 3 === 0 ? '2px' : '1px', background: `rgba(255,140,30,${i % 2 === 0 ? '0.06' : '0.03'})` }} />)}
             </div>
 
             {/* Urgency */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,220,0,0.12)', border: '1px solid rgba(255,220,0,0.3)', borderRadius: '100px', padding: '8px 20px', marginBottom: '20px', position: 'relative', zIndex: 1 }}>
-                <span style={{ color: '#ffe066', fontWeight: 800, fontSize: '13px' }}>⏳ Harga Spesial Rp 99.000 Hanya untuk Hari Ini!</span>
+                <span style={{ color: '#ffe066', fontWeight: 800, fontSize: '13px' }}>⏳ Harga Spesial Rp 99.000 — Gak Akan Segini Terus, Bun!</span>
             </div>
 
             {/* Headline — mom-targeted */}
             <h2 style={{ fontSize: 'clamp(26px, 5vw, 50px)', fontWeight: 900, color: 'white', lineHeight: 1.15, margin: '0 0 16px', maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto', position: 'relative', zIndex: 1 }}>
-                Jangan Tunggu Anak Tertinggal.<br />
+                Jangan Tunggu Sampai Anak Ketinggalan.<br />
                 <span style={{ background: 'linear-gradient(90deg, #ff8c00, #ffb347)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                    Mulai Ajarkan Sekarang, Bunda!
+                  Mulai dari Hari Ini, Bundda!
                 </span>
             </h2>
 
             <p style={{ color: 'rgba(255,220,180,0.8)', fontSize: '17px', maxWidth: '560px', margin: '0 auto 12px', lineHeight: 1.8, position: 'relative', zIndex: 1 }}>
-                Anak yang belajar bahasa Inggris sejak dini punya keunggulan besar di masa depan. Dan Bunda tidak perlu jago bahasa Inggris untuk memulainya — cukup worksheet ini.
+                Si Kecil gak butuh les jutaan untuk mulai jago Inggris. Yang dia butuh itu Bundanya — dan worksheet yang beneran seru. Cuma 15 menit sehari, tapi dampaknya bisa seumur hidup. ❤️
             </p>
 
             {/* Price */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '16px', margin: '20px 0', position: 'relative', zIndex: 1, flexWrap: 'wrap', justifyContent: 'center' }}>
-                <span style={{ color: 'rgba(255,200,150,0.45)', fontSize: '20px', textDecoration: 'line-through' }}>Rp 318.000</span>
+                <span style={{ color: 'rgba(255,200,150,0.45)', fontSize: '20px', textDecoration: 'line-through' }}>Rp 423.000</span>
                 <div style={{ textAlign: 'center' }}>
                     <p style={{ color: 'rgba(255,200,150,0.55)', fontSize: '11px', margin: '0 0 2px', textTransform: 'uppercase', letterSpacing: '1px' }}>Harga Spesial</p>
                     <span style={{ color: 'white', fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 900 }}>Rp 99.000</span>
                 </div>
-                <span style={{ background: '#4ade80', color: '#064e3b', fontSize: '13px', fontWeight: 800, padding: '5px 14px', borderRadius: '100px' }}>Hemat 69%</span>
+                <span style={{ background: '#4ade80', color: '#064e3b', fontSize: '13px', fontWeight: 800, padding: '5px 14px', borderRadius: '100px' }}>Hemat 77%</span>
             </div>
 
 
             {/* CTA Button */}
             <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
-                <button
-                    style={{ display: 'flex', alignItems: 'center', gap: '14px', background: 'linear-gradient(135deg, #ff8c00, #e65c00)', color: 'white', fontWeight: 900, fontSize: 'clamp(15px, 2vw, 18px)', border: 'none', borderRadius: '100px', padding: '20px 44px', cursor: 'pointer', boxShadow: '0 12px 48px rgba(255,100,0,0.65)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-4px) scale(1.03)'; (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 20px 60px rgba(255,100,0,0.8)'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0) scale(1)'; (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 12px 48px rgba(255,100,0,0.65)'; }}
+                <a
+                    href="#order"
+                    style={{
+                        display: 'flex', alignItems: 'center', gap: '14px',
+                        background: 'linear-gradient(135deg, #ff8c00, #e65c00)',
+                        color: 'white', fontWeight: 900, fontSize: 'clamp(15px, 2vw, 18px)',
+                        border: 'none', borderRadius: '100px', padding: '20px 44px',
+                        cursor: 'pointer', boxShadow: '0 12px 48px rgba(255,100,0,0.65)',
+                        textDecoration: 'none',
+                    }}
                 >
-                    🛒 Ya! Saya Mau Anak Saya Jago Inggris Sekarang
+                    🛒 Ya! Saya Mau Si Kecil Mulai Jago Inggris Sekarang!
                     <span style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg>
                     </span>
-                </button>
+                </a>
 
 
                 {/* FOMO */}

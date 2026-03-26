@@ -6,18 +6,37 @@ export default function FutureSuccess() {
                     <span style={{ color: '#e65c00', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>Bekal Masa Depan si Kecil</span>
                 </div>
 
-                <h2 style={{ fontSize: 'clamp(22px, 3.5vw, 32px)', fontWeight: 900, color: '#1a0800', lineHeight: 1.2, margin: '0 0 12px' }}>
+                <h2 style={{ fontSize: 'clamp(20px, 3.5vw, 28px)', fontWeight: 900, color: '#1a0800', lineHeight: 1.2, margin: '0 0 10px' }}>
                     Bahasa Inggris Bukan Sekadar Pelajaran,<br />
                     <span style={{ color: '#e65c00' }}>Tapi Kunci Sukses si Kecil di Masa Depan.</span>
                 </h2>
 
-                <p style={{ color: '#64748b', fontSize: '16px', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto 16px' }}>
-                    Bunda tentu ingin si Kecil memiliki masa depan yang cerah. Di dunia yang makin kompetitif, kemampuan bahasa Inggris adalah <strong>investasi terbaik</strong> yang bisa Bunda berikan saat ini.
+                <p style={{ color: '#64748b', fontSize: '14px', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 14px' }}>
+                    Sekarang banyak hal pakai bahasa Inggris. Kalau anak baru mulai nanti, biasanya lebih berat karena harus ngejar. Kalau dibiasakan dari kecil, belajarnya jadi lebih ringan dan anak lebih percaya diri.
                 </p>
 
-                <p style={{ color: '#1a0800', fontSize: '15px', fontWeight: 700, maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
-                    Yuk Bunda, berikan bekal terbaik untuk masa depan si Kecil. Inilah cara mudah agar si Kecil mulai jago bahasa Inggris dari rumah:
+                <p style={{ color: '#1a0800', fontSize: '15px', fontWeight: 700, maxWidth: '600px', margin: '0 auto 20px', lineHeight: 1.6 }}>
+                    Cukup ikuti worksheet 3 hari—praktis, fun, dan mudah mendampingi.
                 </p>
+
+                <a
+                    href="#order"
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'linear-gradient(135deg, #ff8c00, #e65c00)',
+                        color: 'white',
+                        fontWeight: 800,
+                        fontSize: '14px',
+                        padding: '12px 24px',
+                        borderRadius: '100px',
+                        textDecoration: 'none',
+                        boxShadow: '0 4px 16px rgba(255,100,0,0.4)',
+                    }}
+                >
+                    Saya Mau Mulai 3 Hari Jago Inggris
+                </a>
 
 
             </div>
