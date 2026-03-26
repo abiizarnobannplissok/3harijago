@@ -23,20 +23,7 @@ export default defineConfig({
   },
   build: {
     target: "es2020",
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
-      },
-      mangle: {
-        safari10: true,
-      },
-      format: {
-        comments: false,
-      },
-    },
+    minify: "esbuild",
     rollupOptions: {
       output: {
         manualChunks: {
