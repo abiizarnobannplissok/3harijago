@@ -56,7 +56,11 @@ export default function Hero() {
         >
           <img 
             src="/imghero-optimized.webp" 
-            alt="3 Hari Jago Inggris" 
+            alt="3 Hari Jago Inggris"
+            width="503"
+            height="436"
+            fetchPriority="high"
+            decoding="async"
             style={{ 
               width: '100%', 
               height: 'auto',

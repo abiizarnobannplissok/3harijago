@@ -93,6 +93,10 @@ export default function BenefitsSection() {
                 <img
                     src="/img2-optimized.webp"
                     alt="Semua yang akan Bunda dapatkan"
+                    width="280"
+                    height="209"
+                    loading="lazy"
+                    decoding="async"
                     style={{
                         width: '100%',
                         maxWidth: '280px',

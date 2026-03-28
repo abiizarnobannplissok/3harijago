@@ -1,6 +1,5 @@
 import path from "path";
 import { fileURLToPath } from "url";
-import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
@@ -8,11 +7,9 @@ import viteCompression from "vite-plugin-compression";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
     viteCompression({ algorithm: 'gzip' }),
     viteCompression({ algorithm: 'brotliCompress' }),
   ],
@@ -28,7 +25,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          utils: ['clsx', 'tailwind-merge'],
         },
         chunkFileNames: "assets/js/[name]-[hash].js",
         entryFileNames: "assets/js/[name]-[hash].js",
@@ -40,6 +36,6 @@ export default defineConfig({
     reportCompressedSize: true,
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'clsx', 'tailwind-merge'],
+    include: ['react', 'react-dom'],
   },
 });

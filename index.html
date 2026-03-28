@@ -5,38 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3 Hari Jago Inggris - Worksheet untuk Anak</title>
     
-    <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://app.formulir.com" crossorigin />
+    <link rel="preconnect" href="https://zobook.form.id" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
     <link rel="dns-prefetch" href="https://zobook.form.id" />
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Google Fonts - Preload critical weights only, async load full set -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" /></noscript>
     
-    <!-- Critical CSS -->
     <style>
       html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+      @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: local('Inter Regular'); }
+      @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: local('Inter Bold'); }
+      @font-face { font-family: 'Inter'; font-style: normal; font-weight: 900; font-display: swap; src: local('Inter Black'); }
     </style>
     
-    <!-- External Styles - async -->
     <link href="https://zobook.form.id/css/app.css" rel="stylesheet" media="print" onload="this.media='all'" />
     
-    <!-- Facebook Pixel - Async -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '4478788099110803');
-      fbq('track', 'PageView');
+      (function() {
+        var loaded = false;
+        function loadFB() {
+          if (loaded) return;
+          loaded = true;
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '4478788099110803');
+          fbq('track', 'PageView');
+        }
+        ['scroll', 'click', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, loadFB, {once: true, passive: true});
+        });
+        setTimeout(loadFB, 5000);
+      })();
     </script>
     
     <!-- Embedded form styles -->
@@ -53,6 +67,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script src="https://zobook.form.id/app.js" async></script>
   </body>
 </html>

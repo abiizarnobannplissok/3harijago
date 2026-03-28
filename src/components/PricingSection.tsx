@@ -3,6 +3,8 @@ import { useEffect, useState, useRef, useMemo } from 'react';
 export default function PricingSection() {
     const [time, setTime] = useState(2 * 3600 + 34 * 60 + 53);
     const formRef = useRef<HTMLDivElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
+    const [shouldLoadForm, setShouldLoadForm] = useState(false);
 
     useEffect(() => {
         if (time <= 0) return;
@@ -11,7 +13,26 @@ export default function PricingSection() {
     }, []);
 
     useEffect(() => {
-        if (!formRef.current || formRef.current.childNodes.length > 0) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShouldLoadForm(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '300px' }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!shouldLoadForm || !formRef.current || formRef.current.childNodes.length > 0) return;
+
         formRef.current.innerHTML = `
             <mengantar-form-widget
                 id="mengantar-form-widget"
@@ -21,13 +42,14 @@ export default function PricingSection() {
                 settings='{"type":"page","popupButtonText":"Klik untuk pemesanan","popupText":"Form Pemesanan","popupButtonColor":"#2e47ba","redirectTo":"https://zobook.form.id","isFbPixel":"false","isHideBackground":"true","isNoMargin":"false","isGtm":"true"}'
             ></mengantar-form-widget>
         `;
+
         if (!document.querySelector('script[src="https://zobook.form.id/app.js"]')) {
             const s = document.createElement('script');
             s.src = 'https://zobook.form.id/app.js';
             s.async = true;
             document.body.appendChild(s);
         }
-    }, []);
+    }, [shouldLoadForm]);
 
     const timeDisplay = useMemo(() => ({
         hours: String(Math.floor(time / 3600)).padStart(2, '0'),
@@ -37,6 +59,7 @@ export default function PricingSection() {
 
     return (
         <section
+            ref={sectionRef}
             style={{
                 background: '#ffffff',
                 padding: '24px 20px',
