@@ -1,3 +1,5 @@
+import { scrollToOrder } from '../utils/scrollToOrder';
+
 export default function StoryAfterFAQ() {
     return (
         <section style={{ background: '#fff8f2', padding: '40px 24px' }}>
@@ -49,7 +51,8 @@ export default function StoryAfterFAQ() {
 
                 {/* Button */}
                 <a
-                    href="#order"
+                    href="javascript:void(0)"
+                    onClick={scrollToOrder}
                     style={{
                         display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
                         background: 'linear-gradient(135deg, #ff8c00, #e65c00)',

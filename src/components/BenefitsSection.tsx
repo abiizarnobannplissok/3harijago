@@ -1,3 +1,5 @@
+import { scrollToOrder } from '../utils/scrollToOrder';
+
 const benefits = [
     {
         emoji: '🧒',
@@ -61,7 +63,8 @@ export default function BenefitsSection() {
                             <p style={{ color: '#64748b', fontSize: '13px', lineHeight: 1.5, margin: 0 }}>{b.description}</p>
                             {b.hasButton && (
                                 <a
-                                    href="#order"
+                                    href="javascript:void(0)"
+                                    onClick={scrollToOrder}
                                     style={{
                                         display: 'inline-flex',
                                         alignItems: 'center',
@@ -129,7 +132,8 @@ export default function BenefitsSection() {
                     <p style={{ color: '#64748b', fontSize: '13px', margin: '0 0 6px' }}>Total Nilai: <span style={{ textDecoration: 'line-through' }}>Rp 423.000</span> <span style={{ background: '#4ade80', color: '#064e3b', fontSize: '11px', fontWeight: 700, padding: '2px 8px', borderRadius: '100px', marginLeft: '8px' }}>Hemat 77%</span></p>
                     <p style={{ color: '#e65c00', fontSize: '28px', fontWeight: 900, margin: '0 0 16px' }}>Rp 99.000</p>
                     <a
-                        href="#order"
+                        href="javascript:void(0)"
+                        onClick={scrollToOrder}
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',

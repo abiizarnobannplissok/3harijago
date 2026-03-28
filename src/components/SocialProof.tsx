@@ -1,3 +1,5 @@
+import { scrollToOrder } from '../utils/scrollToOrder';
+
 const testimonials = [
     {
         name: 'Bunda Rizka',
@@ -71,7 +73,8 @@ export default function SocialProof() {
 
             <div style={{ textAlign: 'center', marginTop: '32px' }}>
                 <a
-                    href="#order"
+                    href="javascript:void(0)"
+                    onClick={scrollToOrder}
                     style={{
                         display: 'inline-flex',
                         alignItems: 'center',

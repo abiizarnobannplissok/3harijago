@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { scrollToOrder } from '../utils/scrollToOrder';
 
 export default function Hero() {
   const streaks = useMemo(() => [...Array(18)], []);
@@ -71,7 +72,8 @@ export default function Hero() {
 
         {/* CTA Button */}
         <a
-          href="#order"
+          href="javascript:void(0)"
+          onClick={scrollToOrder}
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: 'linear-gradient(135deg, #ff8c00, #e65c00)',

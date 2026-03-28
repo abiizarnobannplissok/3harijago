@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { scrollToOrder } from '../utils/scrollToOrder';
 
 export default function Storytelling() {
     const lines = useMemo(() => [...Array(6)], []);
@@ -40,7 +41,8 @@ export default function Storytelling() {
                     
                     <div style={{ marginTop: '16px', textAlign: 'center' }}>
                         <a
-                            href="#order"
+                            href="javascript:void(0)"
+                            onClick={scrollToOrder}
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
@@ -104,7 +106,8 @@ export default function Storytelling() {
                     </p>
 
                     <a
-                        href="#order"
+                        href="javascript:void(0)"
+                        onClick={scrollToOrder}
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',

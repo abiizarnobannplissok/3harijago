@@ -1,3 +1,5 @@
+import { scrollToOrder } from '../utils/scrollToOrder';
+
 export default function FutureSuccess() {
     return (
         <section style={{ background: '#ffffff', padding: '24px 24px 12px', position: 'relative', overflow: 'hidden' }}>
@@ -20,7 +22,8 @@ export default function FutureSuccess() {
                 </p>
 
                 <a
-                    href="#order"
+                    href="javascript:void(0)"
+                    onClick={scrollToOrder}
                     style={{
                         display: 'inline-flex',
                         alignItems: 'center',

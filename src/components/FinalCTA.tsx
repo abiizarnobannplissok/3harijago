@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { scrollToOrder } from '../utils/scrollToOrder';
 
 export default function FinalCTA() {
     const streaks = useMemo(() => [...Array(12)], []);
@@ -42,7 +43,8 @@ export default function FinalCTA() {
             {/* CTA Button */}
             <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
                 <a
-                    href="#order"
+                    href="javascript:void(0)"
+                    onClick={scrollToOrder}
                     style={{
                         display: 'flex', alignItems: 'center', gap: '14px',
                         background: 'linear-gradient(135deg, #ff8c00, #e65c00)',

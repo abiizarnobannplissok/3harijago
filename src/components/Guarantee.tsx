@@ -1,3 +1,5 @@
+import { scrollToOrder } from '../utils/scrollToOrder';
+
 export default function Guarantee() {
     return (
         <section style={{ background: 'linear-gradient(180deg, #ffffff 0%, #fff3e8 100%)', padding: '40px 24px' }}>
@@ -39,7 +41,8 @@ export default function Guarantee() {
                         "Kalau ada masalah teknis (link/file), hubungi kami—kami bantu cepat."
                     </p>
                     <a
-                        href="#order"
+                        href="javascript:void(0)"
+                        onClick={scrollToOrder}
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',
