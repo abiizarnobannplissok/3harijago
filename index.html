@@ -30,27 +30,16 @@
     <link href="https://zobook.form.id/css/app.css" rel="stylesheet" media="print" onload="this.media='all'" />
     
     <script>
-      (function() {
-        var loaded = false;
-        function loadFB() {
-          if (loaded) return;
-          loaded = true;
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '4478788099110803');
-          fbq('track', 'PageView');
-        }
-        ['scroll', 'click', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, loadFB, {once: true, passive: true});
-        });
-        setTimeout(loadFB, 5000);
-      })();
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '4478788099110803');
+      fbq('track', 'PageView');
     </script>
     
     <!-- Embedded form styles -->
