@@ -9,6 +9,23 @@ function generateEventId(): string {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
+function sendCapiEvent(payload: Record<string, unknown>) {
+  const send = () => {
+    fetch('/api/events', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
+  };
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(send, { timeout: 5000 });
+  } else {
+    setTimeout(send, 3000);
+  }
+}
+
 export function trackPageView() {
   const eventId = generateEventId();
 
@@ -16,14 +33,10 @@ export function trackPageView() {
     window.fbq('track', 'PageView', {}, { eventID: eventId });
   }
 
-  fetch('/api/events', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      event_name: 'PageView',
-      event_id: eventId
-    })
-  }).catch(() => {});
+  sendCapiEvent({
+    event_name: 'PageView',
+    event_id: eventId,
+  });
 }
 
 export function trackInitiateCheckout() {
@@ -33,16 +46,12 @@ export function trackInitiateCheckout() {
     window.fbq('track', 'InitiateCheckout', { currency: 'IDR', value: 99000 }, { eventID: eventId });
   }
 
-  fetch('/api/events', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      event_name: 'InitiateCheckout',
-      event_id: eventId,
-      custom_data: {
-        currency: 'IDR',
-        value: 99000
-      }
-    })
-  }).catch(() => {});
+  sendCapiEvent({
+    event_name: 'InitiateCheckout',
+    event_id: eventId,
+    custom_data: {
+      currency: 'IDR',
+      value: 99000,
+    },
+  });
 }
