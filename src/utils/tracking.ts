@@ -3,7 +3,6 @@ declare global {
     fbq: (action: string, event: string, data?: Record<string, unknown>, options?: Record<string, unknown>) => void;
     _fbq: unknown;
   }
-  const fbq: (action: string, event: string, data?: Record<string, unknown>, options?: Record<string, unknown>) => void;
 }
 
 function generateEventId(): string {
@@ -58,18 +57,14 @@ export function trackPurchase() {
 
   console.log('[Pixel] trackPurchase called');
 
-  // Use fbq directly without window prefix
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'Purchase', {
-      currency: 'IDR',
-      value: 99000,
-      content_name: '3 Hari Jago Inggris',
-      content_type: 'product',
-    }, { eventID: eventId });
-    console.log('[Pixel] Purchase event fired successfully');
-  } else {
-    console.error('[Pixel] fbq is not defined');
-  }
+  window.fbq('track', 'Purchase', {
+    currency: 'IDR',
+    value: 99000,
+    content_name: '3 Hari Jago Inggris',
+    content_type: 'product',
+  }, { eventID: eventId });
+
+  console.log('[Pixel] Purchase event fired successfully');
 
   sendCapiEvent({
     event_name: 'Purchase',
