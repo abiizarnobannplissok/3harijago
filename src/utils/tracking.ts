@@ -6,6 +6,7 @@ declare global {
       queue?: unknown[];
       loaded?: boolean;
       version?: string;
+      push?: Function;
     };
     _fbq: unknown;
   }
@@ -32,12 +33,13 @@ function sendCapiEvent(payload: Record<string, unknown>) {
   }
 }
 
-function waitForFbq(callback: () => void, maxAttempts = 30) {
+function waitForFbq(callback: () => void, maxAttempts = 50) {
   let attempts = 0;
   const check = () => {
     attempts++;
-    // fbq is ready when it has loaded property set to true
-    if (typeof window.fbq === 'function' && window.fbq.loaded === true) {
+    // fbq is ready when fbevents.js is fully loaded
+    // The real fbq function will be different from the queue
+    if (typeof window.fbq === 'function' && window.fbq.version) {
       callback();
     } else if (attempts < maxAttempts) {
       setTimeout(check, 100);
