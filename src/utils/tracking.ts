@@ -29,7 +29,7 @@ function sendCapiEvent(payload: Record<string, unknown>) {
 export function trackPageView() {
   const eventId = generateEventId();
 
-  window.fbq('track', 'PageView', {}, { eventID: eventId });
+  window.fbq('track', 'PageView', { eventId: eventId });
 
   sendCapiEvent({
     event_name: 'PageView',
@@ -40,7 +40,11 @@ export function trackPageView() {
 export function trackInitiateCheckout() {
   const eventId = generateEventId();
 
-  window.fbq('track', 'InitiateCheckout', { currency: 'IDR', value: 99000 }, { eventID: eventId });
+  window.fbq('track', 'InitiateCheckout', { 
+    currency: 'IDR', 
+    value: 99000,
+    eventId: eventId 
+  });
 
   sendCapiEvent({
     event_name: 'InitiateCheckout',
@@ -62,7 +66,8 @@ export function trackPurchase() {
     value: 99000,
     content_name: '3 Hari Jago Inggris',
     content_type: 'product',
-  }, { eventID: eventId });
+    eventId: eventId
+  });
 
   console.log('[Pixel] Purchase event fired successfully');
 

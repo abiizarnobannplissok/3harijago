@@ -6,8 +6,13 @@ const ThankYou = memo(function ThankYou() {
   const lottieLoaded = useRef(false);
 
   useEffect(() => {
-    console.log('[ThankYou] Component mounted, calling trackPurchase');
-    trackPurchase();
+    console.log('[ThankYou] Component mounted');
+    console.log('[ThankYou] window.fbq type:', typeof window.fbq);
+    
+    setTimeout(() => {
+      console.log('[ThankYou] Calling trackPurchase after delay');
+      trackPurchase();
+    }, 100);
   }, []);
 
   useEffect(() => {
