@@ -1,6 +1,12 @@
 declare global {
   interface Window {
-    fbq: (action: string, event: string, data?: Record<string, unknown>, options?: Record<string, unknown>) => void;
+    fbq: {
+      (action: string, event: string, data?: Record<string, unknown>, options?: Record<string, unknown>): void;
+      callMethod?: Function;
+      queue?: unknown[];
+      loaded?: boolean;
+      version?: string;
+    };
     _fbq: unknown;
   }
 }
@@ -26,11 +32,12 @@ function sendCapiEvent(payload: Record<string, unknown>) {
   }
 }
 
-function waitForFbq(callback: () => void, maxAttempts = 20) {
+function waitForFbq(callback: () => void, maxAttempts = 30) {
   let attempts = 0;
   const check = () => {
     attempts++;
-    if (typeof window.fbq === 'function') {
+    // fbq is ready when it has loaded property set to true
+    if (typeof window.fbq === 'function' && window.fbq.loaded === true) {
       callback();
     } else if (attempts < maxAttempts) {
       setTimeout(check, 100);
