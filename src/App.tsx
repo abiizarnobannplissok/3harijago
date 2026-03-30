@@ -35,6 +35,7 @@ const App = memo(function App() {
       const path = window.location.pathname;
       if (path === '/terima-kasih' || path === '/thankyou') {
         setCurrentPage('thankyou');
+        trackPageView();
       } else {
         setCurrentPage('main');
         trackPageView();
