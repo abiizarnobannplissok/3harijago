@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { fontInter } from './fonts';
 import Script from 'next/script';
 import './globals.css';
+import { trackPageView } from '@/lib/tracking';
 
 export const metadata: Metadata = {
   title: '3 Hari Jago Inggris - Worksheet untuk Anak',
@@ -48,6 +49,7 @@ export default function RootLayout({
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '4478788099110803');
+              fbq('track', 'PageView');
             `,
           }}
           strategy="afterInteractive"
