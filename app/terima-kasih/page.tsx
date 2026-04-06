@@ -1,31 +1,11 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useEffect } from 'react';
 import Script from 'next/script';
 
 const ThankYou = dynamic(() => import('@/components/ThankYou'));
 
 export default function ThankYouPage() {
-  useEffect(() => {
-    const firePurchasePixel = () => {
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Purchase', { 
-          currency: 'IDR', 
-          value: 99000 
-        });
-        console.log('Purchase pixel fired');
-      }
-    };
-
-    if ((window as any).fbq) {
-      firePurchasePixel();
-    } else {
-      window.addEventListener('fbq-ready', firePurchasePixel);
-      setTimeout(firePurchasePixel, 1000);
-    }
-  }, []);
-
   return (
     <>
       <Script
@@ -40,7 +20,7 @@ export default function ThankYouPage() {
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '4478788099110803');
-            window.dispatchEvent(new Event('fbq-ready'));
+            fbq('track', 'Purchase', {currency: 'IDR', value: 99000});
           `,
         }}
         strategy="beforeInteractive"
