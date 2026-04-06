@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useMemo } from 'react';
 import { scrollToOrder } from '@/lib/scrollToOrder';
 
@@ -51,13 +52,12 @@ export default function Hero() {
             marginBottom: '8px',
           }}
         >
-          <img 
+          <Image 
             src="/imghero-optimized.webp" 
             alt="3 Hari Jago Inggris"
-            width="503"
-            height="436"
-            fetchPriority="high"
-            decoding="async"
+            width={503}
+            height={436}
+            priority
             style={{ 
               width: '100%', 
               height: 'auto',

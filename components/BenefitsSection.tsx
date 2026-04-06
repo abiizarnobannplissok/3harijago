@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { scrollToOrder } from '@/lib/scrollToOrder';
 
 const benefits = [
@@ -93,13 +94,12 @@ export default function BenefitsSection() {
             </div>
 
             <div style={{ maxWidth: '600px', margin: '24px auto 0', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '16px', padding: '24px' }}>
-                <img
+                <Image
                     src="/img2-optimized.webp"
                     alt="Semua yang akan Bunda dapatkan"
-                    width="280"
-                    height="209"
+                    width={280}
+                    height={209}
                     loading="lazy"
-                    decoding="async"
                     style={{
                         width: '100%',
                         maxWidth: '280px',

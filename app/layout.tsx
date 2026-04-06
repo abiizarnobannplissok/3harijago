@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { fontInter } from './fonts';
 import Script from 'next/script';
 import './globals.css';
-import { trackPageView } from '@/lib/tracking';
 
 export const metadata: Metadata = {
   title: '3 Hari Jago Inggris - Worksheet untuk Anak',
@@ -20,6 +19,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://jadilebihbaik.form.id" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
         
         <link href="https://jadilebihbaik.form.id/css/app.css" rel="stylesheet" />
         
@@ -52,7 +52,7 @@ export default function RootLayout({
               fbq('track', 'PageView');
             `,
           }}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
