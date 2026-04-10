@@ -6,8 +6,6 @@ export default function PricingSection() {
     const [time, setTime] = useState(2 * 3600 + 34 * 60 + 53);
     const formRef = useRef<HTMLDivElement>(null);
     const formLoaded = useRef(false);
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         if (time <= 0) return;
@@ -15,62 +13,62 @@ export default function PricingSection() {
         return () => clearInterval(interval);
     }, []);
 
-    // Intersection Observer to load form only when section is near viewport
+    // Load form on first scroll - user engagement signal
     useEffect(() => {
-        if (!sectionRef.current) return;
-        
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && !isVisible) {
-                        setIsVisible(true);
-                    }
-                });
-            },
-            { rootMargin: '300px' } // Load 300px before section is visible
-        );
+        const loadForm = () => {
+            if (formLoaded.current || !formRef.current) return;
+            formLoaded.current = true;
 
-        observer.observe(sectionRef.current);
-        return () => observer.disconnect();
-    }, [isVisible]);
+            // Load form CSS first
+            const cssLink = document.createElement('link');
+            cssLink.rel = 'stylesheet';
+            cssLink.href = 'https://jadilebihbaik.form.id/css/app.css';
+            document.head.appendChild(cssLink);
 
-    useEffect(() => {
-        if (!isVisible || formLoaded.current || !formRef.current) return;
-        formLoaded.current = true;
+            // Then load form widget
+            const container = formRef.current;
+            const widget = document.createElement('mengantar-form-widget');
+            widget.setAttribute('id', 'mengantar-form-widget');
+            widget.setAttribute('url', '3-hari-jago-inggris-');
+            widget.setAttribute('domain', 'jadilebihbaik.form.id');
+            widget.setAttribute('embed', 'true');
+            widget.setAttribute('settings', JSON.stringify({
+                type: 'page',
+                popupButtonText: 'Klik untuk pemesanan',
+                popupText: 'Form Pemesanan',
+                popupButtonColor: '#2e47ba',
+                redirectTo: 'https://jadilebihbaik.form.id',
+                isFbPixel: 'true',
+                isHideBackground: 'true',
+                isNoMargin: 'false',
+                isGtm: 'true'
+            }));
+            container.appendChild(widget);
 
-        // Load form CSS first
-        const cssLink = document.createElement('link');
-        cssLink.rel = 'stylesheet';
-        cssLink.href = 'https://jadilebihbaik.form.id/css/app.css';
-        document.head.appendChild(cssLink);
+            if (!document.querySelector('script[src="https://jadilebihbaik.form.id/app.js"]')) {
+                const s = document.createElement('script');
+                s.src = 'https://jadilebihbaik.form.id/app.js';
+                s.async = true;
+                document.body.appendChild(s);
+            }
+        };
 
-        // Then load form widget
-        const container = formRef.current;
-        const widget = document.createElement('mengantar-form-widget');
-        widget.setAttribute('id', 'mengantar-form-widget');
-        widget.setAttribute('url', '3-hari-jago-inggris-');
-        widget.setAttribute('domain', 'jadilebihbaik.form.id');
-        widget.setAttribute('embed', 'true');
-        widget.setAttribute('settings', JSON.stringify({
-            type: 'page',
-            popupButtonText: 'Klik untuk pemesanan',
-            popupText: 'Form Pemesanan',
-            popupButtonColor: '#2e47ba',
-            redirectTo: 'https://jadilebihbaik.form.id',
-            isFbPixel: 'true',
-            isHideBackground: 'true',
-            isNoMargin: 'false',
-            isGtm: 'true'
-        }));
-        container.appendChild(widget);
+        // Start loading form on first scroll (user engagement signal)
+        const handleScroll = () => {
+            loadForm();
+            window.removeEventListener('scroll', handleScroll);
+        };
 
-        if (!document.querySelector('script[src="https://jadilebihbaik.form.id/app.js"]')) {
-            const s = document.createElement('script');
-            s.src = 'https://jadilebihbaik.form.id/app.js';
-            s.async = true;
-            document.body.appendChild(s);
-        }
-    }, [isVisible]);
+        // Also load after 2 seconds if user hasn't scrolled (fallback)
+        const fallbackTimer = setTimeout(loadForm, 2000);
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(fallbackTimer);
+        };
+    }, []);
 
     const timeDisplay = useMemo(() => ({
         hours: String(Math.floor(time / 3600)).padStart(2, '0'),
@@ -80,7 +78,6 @@ export default function PricingSection() {
 
     return (
         <section
-            ref={sectionRef}
             style={{
                 background: '#ffffff',
                 padding: '24px 20px',
