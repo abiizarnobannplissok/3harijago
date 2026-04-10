@@ -6,6 +6,8 @@ export default function PricingSection() {
     const [time, setTime] = useState(2 * 3600 + 34 * 60 + 53);
     const formRef = useRef<HTMLDivElement>(null);
     const formLoaded = useRef(false);
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         if (time <= 0) return;
@@ -13,10 +15,36 @@ export default function PricingSection() {
         return () => clearInterval(interval);
     }, []);
 
+    // Intersection Observer to load form only when section is near viewport
     useEffect(() => {
-        if (formLoaded.current || !formRef.current) return;
+        if (!sectionRef.current) return;
+        
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !isVisible) {
+                        setIsVisible(true);
+                    }
+                });
+            },
+            { rootMargin: '300px' } // Load 300px before section is visible
+        );
+
+        observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, [isVisible]);
+
+    useEffect(() => {
+        if (!isVisible || formLoaded.current || !formRef.current) return;
         formLoaded.current = true;
 
+        // Load form CSS first
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = 'https://jadilebihbaik.form.id/css/app.css';
+        document.head.appendChild(cssLink);
+
+        // Then load form widget
         const container = formRef.current;
         const widget = document.createElement('mengantar-form-widget');
         widget.setAttribute('id', 'mengantar-form-widget');
@@ -42,7 +70,7 @@ export default function PricingSection() {
             s.async = true;
             document.body.appendChild(s);
         }
-    }, []);
+    }, [isVisible]);
 
     const timeDisplay = useMemo(() => ({
         hours: String(Math.floor(time / 3600)).padStart(2, '0'),
@@ -52,6 +80,7 @@ export default function PricingSection() {
 
     return (
         <section
+            ref={sectionRef}
             style={{
                 background: '#ffffff',
                 padding: '24px 20px',

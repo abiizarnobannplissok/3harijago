@@ -36,13 +36,15 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://jadilebihbaik.form.id" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
         
+        {/* Preload hero image for faster LCP */}
+        <link rel="preload" as="image" href="/imghero-optimized.webp" fetchPriority="high" />
+        
         <link 
           rel="preload" 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" 
           as="style" 
         />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
-        <link href="https://jadilebihbaik.form.id/css/app.css" rel="stylesheet" />
         
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -60,7 +62,7 @@ export default function RootLayout({
         {children}
         <Script
           id="facebook-pixel"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
