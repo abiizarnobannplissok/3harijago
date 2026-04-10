@@ -29,7 +29,7 @@ export default function PricingSection() {
             const container = formRef.current;
             const widget = document.createElement('mengantar-form-widget');
             widget.setAttribute('id', 'mengantar-form-widget');
-            widget.setAttribute('url', '3-hari-jago-inggris-');
+            widget.setAttribute('url', 'jago-inggris');
             widget.setAttribute('domain', 'jadilebihbaik.form.id');
             widget.setAttribute('embed', 'true');
             widget.setAttribute('settings', JSON.stringify({
@@ -125,9 +125,9 @@ export default function PricingSection() {
 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
                         <span style={{ color: '#94a3b8', fontSize: '18px', textDecoration: 'line-through', fontWeight: 600 }}>Rp 423.000</span>
-                        <span style={{ background: '#FF8A00', color: '#ffffff', fontSize: '12px', fontWeight: 800, padding: '3px 10px', borderRadius: '100px' }}>HEMAT 77%</span>
+                        <span style={{ background: '#FF8A00', color: '#ffffff', fontSize: '12px', fontWeight: 800, padding: '3px 10px', borderRadius: '100px' }}>HEMAT 93%</span>
                     </div>
-                    <p style={{ color: '#1a0800', fontSize: 'clamp(36px, 5vw, 48px)', fontWeight: 900, margin: '4px 0 6px', lineHeight: 1 }}>Rp 99.000</p>
+                    <p style={{ color: '#1a0800', fontSize: 'clamp(36px, 5vw, 48px)', fontWeight: 900, margin: '4px 0 6px', lineHeight: 1 }}>Rp 29.000</p>
                     <p style={{ color: '#64748b', fontSize: '12px', margin: 0 }}>⏰ Sisa slot: hanya untuk 500 Bunda pertama!</p>
                 </div>
 

@@ -16,7 +16,7 @@ export default function FinalCTA() {
             </div>
 
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,220,0,0.12)', border: '1px solid rgba(255,220,0,0.3)', borderRadius: '100px', padding: '8px 20px', marginBottom: '20px', position: 'relative', zIndex: 1 }}>
-                <span style={{ color: '#ffe066', fontWeight: 800, fontSize: '13px' }}>⏳ Harga Spesial Rp 99.000 — Gak Akan Segini Terus, Bun!</span>
+                <span style={{ color: '#ffe066', fontWeight: 800, fontSize: '13px' }}>⏳ Harga Spesial Rp 29.000 — Gak Akan Segini Terus, Bun!</span>
             </div>
 
             <h2 style={{ fontSize: 'clamp(26px, 5vw, 50px)', fontWeight: 900, color: 'white', lineHeight: 1.15, margin: '0 0 16px', maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto', position: 'relative', zIndex: 1 }}>
@@ -34,9 +34,9 @@ export default function FinalCTA() {
                 <span style={{ color: 'rgba(255,200,150,0.45)', fontSize: '20px', textDecoration: 'line-through' }}>Rp 423.000</span>
                 <div style={{ textAlign: 'center' }}>
                     <p style={{ color: 'rgba(255,200,150,0.55)', fontSize: '11px', margin: '0 0 2px', textTransform: 'uppercase', letterSpacing: '1px' }}>Harga Spesial</p>
-                    <span style={{ color: 'white', fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 900 }}>Rp 99.000</span>
+                    <span style={{ color: 'white', fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 900 }}>Rp 29.000</span>
                 </div>
-                <span style={{ background: '#4ade80', color: '#064e3b', fontSize: '13px', fontWeight: 800, padding: '5px 14px', borderRadius: '100px' }}>Hemat 77%</span>
+                <span style={{ background: '#4ade80', color: '#064e3b', fontSize: '13px', fontWeight: 800, padding: '5px 14px', borderRadius: '100px' }}>Hemat 93%</span>
             </div>
 
             <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>

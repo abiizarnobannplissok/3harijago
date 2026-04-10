@@ -25,7 +25,7 @@ const benefits = [
     {
         emoji: '💰',
         title: 'Lebih Hemat dari Les Bulanan',
-        description: 'Les bisa Rp500rb–Rp2jt/bulan. Ini sekali bayar Rp99.000, file bisa dipakai selamanya dan bisa print ulang.',
+        description: 'Les bisa Rp500rb–Rp2jt/bulan. Ini sekali bayar Rp29.000, file bisa dipakai selamanya dan bisa print ulang.',
         highlight: false,
     },
     {
@@ -129,8 +129,8 @@ export default function BenefitsSection() {
                     </div>
                 ))}
                 <div style={{ textAlign: 'center', marginTop: '8px' }}>
-                    <p style={{ color: '#64748b', fontSize: '13px', margin: '0 0 6px' }}>Total Nilai: <span style={{ textDecoration: 'line-through' }}>Rp 423.000</span> <span style={{ background: '#4ade80', color: '#064e3b', fontSize: '11px', fontWeight: 700, padding: '2px 8px', borderRadius: '100px', marginLeft: '8px' }}>Hemat 77%</span></p>
-                    <p style={{ color: '#e65c00', fontSize: '28px', fontWeight: 900, margin: '0 0 16px' }}>Rp 99.000</p>
+                    <p style={{ color: '#64748b', fontSize: '13px', margin: '0 0 6px' }}>Total Nilai: <span style={{ textDecoration: 'line-through' }}>Rp 423.000</span> <span style={{ background: '#4ade80', color: '#064e3b', fontSize: '11px', fontWeight: 700, padding: '2px 8px', borderRadius: '100px', marginLeft: '8px' }}>Hemat 93%</span></p>
+                    <p style={{ color: '#e65c00', fontSize: '28px', fontWeight: 900, margin: '0 0 16px' }}>Rp 29.000</p>
                     <a
                         href="#order"
                         onClick={(e) => scrollToOrder(e)}

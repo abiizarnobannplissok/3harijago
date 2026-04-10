@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -16,11 +15,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  verification: {
-    other: {
-      'facebook-domain-verification': '4478788099110803',
-    },
-  },
 };
 
 export default function RootLayout({
@@ -34,7 +28,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://jadilebihbaik.form.id" />
-        <link rel="dns-prefetch" href="https://connect.facebook.net" />
         
         {/* Preload hero image for faster LCP */}
         <link rel="preload" as="image" href="/imghero-optimized.webp" fetchPriority="high" />
@@ -60,24 +53,6 @@ export default function RootLayout({
       </head>
       <body style={{ fontFamily: "'Inter', sans-serif" }}>
         {children}
-        <Script
-          id="facebook-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '4478788099110803');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
       </body>
     </html>
   );
